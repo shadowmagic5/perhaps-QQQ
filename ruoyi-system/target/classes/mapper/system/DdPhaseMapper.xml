@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.DdPhaseMapper">
+    
+    <resultMap type="DdPhase" id="DdPhaseResult">
+        <result property="id"    column="id"    />
+        <result property="createdby"    column="createdby"    />
+        <result property="createdon"    column="createdon"    />
+        <result property="modifiedby"    column="modifiedby"    />
+        <result property="modifiedon"    column="modifiedon"    />
+        <result property="status"    column="status"    />
+        <result property="name"    column="name"    />
+    </resultMap>
+
+    <sql id="selectDdPhaseVo">
+        select id, createdby, createdon, modifiedby, modifiedon, status, name from dd_phase
+    </sql>
+
+    <select id="selectDdPhaseList" parameterType="DdPhase" resultMap="DdPhaseResult">
+        <include refid="selectDdPhaseVo"/>
+        <where>  
+            <if test="createdby != null  and createdby != ''"> and createdby = #{createdby}</if>
+            <if test="createdon != null  and createdon != ''"> and createdon = #{createdon}</if>
+            <if test="modifiedby != null  and modifiedby != ''"> and modifiedby = #{modifiedby}</if>
+            <if test="modifiedon != null  and modifiedon != ''"> and modifiedon = #{modifiedon}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+        </where>
+    </select>
+    
+    <select id="selectDdPhaseById" parameterType="Long" resultMap="DdPhaseResult">
+        <include refid="selectDdPhaseVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertDdPhase" parameterType="DdPhase">
+        insert into dd_phase
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="createdby != null">createdby,</if>
+            <if test="createdon != null">createdon,</if>
+            <if test="modifiedby != null">modifiedby,</if>
+            <if test="modifiedon != null">modifiedon,</if>
+            <if test="status != null">status,</if>
+            <if test="name != null">name,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="createdby != null">#{createdby},</if>
+            <if test="createdon != null">#{createdon},</if>
+            <if test="modifiedby != null">#{modifiedby},</if>
+            <if test="modifiedon != null">#{modifiedon},</if>
+            <if test="status != null">#{status},</if>
+            <if test="name != null">#{name},</if>
+         </trim>
+    </insert>
+
+    <update id="updateDdPhase" parameterType="DdPhase">
+        update dd_phase
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="createdby != null">createdby = #{createdby},</if>
+            <if test="createdon != null">createdon = #{createdon},</if>
+            <if test="modifiedby != null">modifiedby = #{modifiedby},</if>
+            <if test="modifiedon != null">modifiedon = #{modifiedon},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="name != null">name = #{name},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteDdPhaseById" parameterType="Long">
+        delete from dd_phase where id = #{id}
+    </delete>
+
+    <delete id="deleteDdPhaseByIds" parameterType="String">
+        delete from dd_phase where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

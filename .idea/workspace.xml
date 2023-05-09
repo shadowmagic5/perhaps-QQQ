@@ -5,20 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23582023-b9e1-420b-b77e-1a4845a1f49c" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Perhaps-QQQ.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/ruoyi-admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/ruoyi-admin.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysDeptController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysDeptController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-common/ruoyi-common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/ruoyi-common.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/utils/file/FileUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/utils/file/FileUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/utils/file/ImageUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/utils/file/ImageUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/utils/http/HttpHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/utils/http/HttpHelper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/utils/http/HttpUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/utils/http/HttpUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/utils/poi/ExcelUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/target/classes/com/ruoyi/common/utils/poi/ExcelUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-framework/ruoyi-framework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/ruoyi-framework.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/aspectj/DataSourceAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/aspectj/DataSourceAspect.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/SysLoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-framework/target/classes/com/ruoyi/framework/web/service/SysLoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-generator/ruoyi-generator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-generator/ruoyi-generator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-generator/src/main/resources/mapper/generator/GenTableColumnMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-generator/src/main/resources/mapper/generator/GenTableColumnMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-generator/src/main/resources/mapper/generator/GenTableMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-generator/src/main/resources/mapper/generator/GenTableMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-generator/target/classes/mapper/generator/GenTableColumnMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-generator/target/classes/mapper/generator/GenTableColumnMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-generator/target/classes/mapper/generator/GenTableMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-generator/target/classes/mapper/generator/GenTableMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-quartz/ruoyi-quartz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-quartz/ruoyi-quartz.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-system/ruoyi-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/ruoyi-system.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/20230503.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/20230503.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +50,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2PVcSlRl27XiYObl10IFKRnQYHh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -54,8 +65,9 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Code/perhaps-QQQ",
+    "last_opened_file_path": "C:/Code/Perhaps-QQQ/ruoyi-system/src/main/resources/mapper/system",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "project.structure.last.edited": "项目",
@@ -64,6 +76,15 @@
     "settings.editor.selected.configurable": "reference.settings.project.maven.ignored.files"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Code\Perhaps-QQQ\ruoyi-system\src\main\resources\mapper\system" />
+      <recent name="C:\Code\Perhaps-QQQ\ruoyi-system\src\main\java\com\ruoyi\system\service\impl" />
+      <recent name="C:\Code\Perhaps-QQQ\ruoyi-system\src\main\java\com\ruoyi\system\service" />
+      <recent name="C:\Code\Perhaps-QQQ\ruoyi-system\src\main\java\com\ruoyi\system\mapper" />
+      <recent name="C:\Code\Perhaps-QQQ\ruoyi-system\src\main\java\com\ruoyi\system\domain" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="perhaps-QQQ" />

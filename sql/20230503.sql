@@ -1,4 +1,4 @@
-CREATE TABLE girls
+CREATE TABLE dd_girls
 (
     id	BIGINT,
     name	NVARCHAR(50),
