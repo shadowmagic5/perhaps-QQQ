@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.DdAskMapper">
+
+    <resultMap type="DdAsk" id="DdAskResult">
+        <result property="createdby"    column="createdby"    />
+        <result property="createdon"    column="createdon"    />
+        <result property="modifiedby"    column="modifiedby"    />
+        <result property="modifiedon"    column="modifiedon"    />
+        <result property="status"    column="status"    />
+        <result property="phaseid"    column="phaseid"    />
+        <result property="question"    column="question"    />
+        <result property="id"    column="ID"    />
+        <result property="onlinetype"    column="onlineType"    />
+    </resultMap>
+
+    <sql id="selectDdAskVo">
+        select createdby, createdon, modifiedby, modifiedon, status, phaseid, question, ID, onlineType from dd_ask
+    </sql>
+
+    <select id="selectDdAskList" parameterType="DdAsk" resultMap="DdAskResult">
+        <include refid="selectDdAskVo"/>
+        <where>
+            <if test="createdby != null  and createdby != ''"> and createdby = #{createdby}</if>
+            <if test="createdon != null  and createdon != ''"> and createdon = #{createdon}</if>
+            <if test="modifiedby != null  and modifiedby != ''"> and modifiedby = #{modifiedby}</if>
+            <if test="modifiedon != null  and modifiedon != ''"> and modifiedon = #{modifiedon}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="phaseid != null "> and phaseid = #{phaseid}</if>
+            <if test="question != null  and question != ''"> and question = #{question}</if>
+            <if test="id != null "> and ID = #{id}</if>
+            <if test="onlinetype != null  and onlinetype != ''"> and onlineType = #{onlinetype}</if>
+        </where>
+    </select>
+
+    <select id="selectDdAskByCreatedby" parameterType="String" resultMap="DdAskResult">
+        <include refid="selectDdAskVo"/>
+        where createdby = #{createdby}
+    </select>
+
+    <insert id="insertDdAsk" parameterType="DdAsk">
+        insert into dd_ask
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="createdby != null">createdby,</if>
+            <if test="createdon != null">createdon,</if>
+            <if test="modifiedby != null">modifiedby,</if>
+            <if test="modifiedon != null">modifiedon,</if>
+            <if test="status != null">status,</if>
+            <if test="phaseid != null">phaseid,</if>
+            <if test="question != null">question,</if>
+            <if test="id != null">ID,</if>
+            <if test="onlinetype != null">onlineType,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="createdby != null">#{createdby},</if>
+            <if test="createdon != null">#{createdon},</if>
+            <if test="modifiedby != null">#{modifiedby},</if>
+            <if test="modifiedon != null">#{modifiedon},</if>
+            <if test="status != null">#{status},</if>
+            <if test="phaseid != null">#{phaseid},</if>
+            <if test="question != null">#{question},</if>
+            <if test="id != null">#{id},</if>
+            <if test="onlinetype != null">#{onlinetype},</if>
+        </trim>
+    </insert>
+
+    <update id="updateDdAsk" parameterType="DdAsk">
+        update dd_ask
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="createdon != null">createdon = #{createdon},</if>
+            <if test="modifiedby != null">modifiedby = #{modifiedby},</if>
+            <if test="modifiedon != null">modifiedon = #{modifiedon},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="phaseid != null">phaseid = #{phaseid},</if>
+            <if test="question != null">question = #{question},</if>
+            <if test="id != null">ID = #{id},</if>
+            <if test="onlinetype != null">onlineType = #{onlinetype},</if>
+        </trim>
+        where createdby = #{createdby}
+    </update>
+
+    <delete id="deleteDdAskByCreatedby" parameterType="String">
+        delete from dd_ask where createdby = #{createdby}
+    </delete>
+
+    <delete id="deleteDdAskByCreatedbys" parameterType="String">
+        delete from dd_ask where createdby in
+        <foreach item="createdby" collection="array" open="(" separator="," close=")">
+            #{createdby}
+        </foreach>
+    </delete>
+</mapper>

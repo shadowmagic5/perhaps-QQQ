@@ -15,6 +15,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Perhaps-QQQ" target="1.8" />
       <module name="perhaps-QQQ" target="1.5" />
       <module name="ruoyi" target="1.8" />
       <module name="ruoyi-admin" target="1.8" />
