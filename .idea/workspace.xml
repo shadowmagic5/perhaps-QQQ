@@ -7,6 +7,7 @@
     <list default="true" id="23582023-b9e1-420b-b77e-1a4845a1f49c" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/ruoyi-admin/ruoyi-admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/ruoyi-admin.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysDeptController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/com/ruoyi/web/controller/system/SysDeptController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-common/ruoyi-common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-common/ruoyi-common.iml" afterDir="false" />
@@ -24,6 +25,8 @@
       <change beforePath="$PROJECT_DIR$/ruoyi-system/ruoyi-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/ruoyi-system.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/system/SysMenuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/system/SysMenuMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/system/SysRoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/system/SysRoleMapper.xml" afterDir="false" />
+=======
+>>>>>>> 591c508269177380ef970c49fad78885156983f7
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +75,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Code/Perhaps-QQQ/ruoyi-system/src/main/resources/mapper/system&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Code/sanou-test&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
@@ -129,9 +132,14 @@
       <workItem from="1683546369692" duration="3310000" />
       <workItem from="1683677496757" duration="3166000" />
       <workItem from="1683761606378" duration="10540000" />
+<<<<<<< HEAD
       <workItem from="1683808995097" duration="1210000" />
       <workItem from="1684496642405" duration="12000" />
       <workItem from="1684842058863" duration="4011000" />
+=======
+      <workItem from="1683849159152" duration="527000" />
+      <workItem from="1684194378185" duration="523000" />
+>>>>>>> 591c508269177380ef970c49fad78885156983f7
     </task>
     <servers />
   </component>
