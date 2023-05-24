@@ -49,6 +49,13 @@
             <artifactId>mssql-jdbc</artifactId>
         </dependency>
 
+        <!--druid连接池坐标-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.6</version>
+        </dependency>
+
         <!-- 核心模块-->
         <dependency>
             <groupId>com.ruoyi</groupId>
