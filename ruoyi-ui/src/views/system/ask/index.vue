@@ -1,29 +1,15 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="创建人" prop="createdby">
-        <el-input
-          v-model="queryParams.createdby"
-          placeholder="请输入创建人"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="修改人" prop="modifiedby">
-        <el-input
-          v-model="queryParams.modifiedby"
-          placeholder="请输入修改人"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="阶段" prop="phaseid">
-        <el-input
-          v-model="queryParams.phaseid"
-          placeholder="请输入阶段"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
+      <el-form-item label="阶段" prop="phaseId">
+        <el-select v-model="queryParams.phaseId" placeholder="请选择阶段" clearable>
+          <el-option
+            v-for="dict in dict.type.dd_phase"
+            :key="dict.value"
+            :label="dict.label"
+            :value="dict.value"
+          />
+        </el-select>
       </el-form-item>
       <el-form-item label="问题" prop="question">
         <el-input
@@ -33,13 +19,15 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="ID" prop="id">
-        <el-input
-          v-model="queryParams.id"
-          placeholder="请输入ID"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
+      <el-form-item label="线上类型" prop="onlineType">
+        <el-select v-model="queryParams.onlineType" placeholder="请选择线上类型" clearable>
+          <el-option
+            v-for="dict in dict.type.online_type"
+            :key="dict.value"
+            :label="dict.label"
+            :value="dict.value"
+          />
+        </el-select>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
@@ -95,15 +83,19 @@
 
     <el-table v-loading="loading" :data="askList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="创建人" align="center" prop="createdby" />
-      <el-table-column label="创建时间" align="center" prop="createdon" />
-      <el-table-column label="修改人" align="center" prop="modifiedby" />
-      <el-table-column label="修改时间" align="center" prop="modifiedon" />
+      <el-table-column label="ID" align="center" prop="askId" />
       <el-table-column label="状态" align="center" prop="status" />
-      <el-table-column label="阶段" align="center" prop="phaseid" />
+      <el-table-column label="阶段" align="center" prop="phaseId">
+        <template slot-scope="scope">
+          <dict-tag :options="dict.type.dd_phase" :value="scope.row.phaseId"/>
+        </template>
+      </el-table-column>
       <el-table-column label="问题" align="center" prop="question" />
-      <el-table-column label="ID" align="center" prop="id" />
-      <el-table-column label="${comment}" align="center" prop="onlinetype" />
+      <el-table-column label="线上类型" align="center" prop="onlineType">
+        <template slot-scope="scope">
+          <dict-tag :options="dict.type.online_type" :value="scope.row.onlineType"/>
+        </template>
+      </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -135,20 +127,25 @@
     <!-- 添加或修改应答对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-        <el-form-item label="创建人" prop="createdby">
-          <el-input v-model="form.createdby" placeholder="请输入创建人" />
+        <el-form-item label="阶段" prop="phaseId">
+          <el-select v-model="form.phaseId" placeholder="请选择阶段">
+            <el-option
+              v-for="dict in dict.type.dd_phase"
+              :key="dict.value"
+              :label="dict.label"
+              :value="parseInt(dict.value)"
+            ></el-option>
+          </el-select>
         </el-form-item>
-        <el-form-item label="修改人" prop="modifiedby">
-          <el-input v-model="form.modifiedby" placeholder="请输入修改人" />
-        </el-form-item>
-        <el-form-item label="阶段" prop="phaseid">
-          <el-input v-model="form.phaseid" placeholder="请输入阶段" />
-        </el-form-item>
-        <el-form-item label="问题" prop="question">
-          <el-input v-model="form.question" placeholder="请输入问题" />
-        </el-form-item>
-        <el-form-item label="ID" prop="id">
-          <el-input v-model="form.id" placeholder="请输入ID" />
+        <el-form-item label="线上类型" prop="onlineType">
+          <el-select v-model="form.onlineType" placeholder="请选择线上类型">
+            <el-option
+              v-for="dict in dict.type.online_type"
+              :key="dict.value"
+              :label="dict.label"
+              :value="parseInt(dict.value)"
+            ></el-option>
+          </el-select>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -164,6 +161,7 @@ import { listAsk, getAsk, delAsk, addAsk, updateAsk } from "@/api/system/ask";
 
 export default {
   name: "Ask",
+  dicts: ['dd_phase', 'online_type'],
   data() {
     return {
       // 遮罩层
@@ -188,15 +186,10 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
-        createdby: null,
-        createdon: null,
-        modifiedby: null,
-        modifiedon: null,
         status: null,
-        phaseid: null,
+        phaseId: null,
         question: null,
-        id: null,
-        onlinetype: null
+        onlineType: null
       },
       // 表单参数
       form: {},
@@ -226,15 +219,15 @@ export default {
     // 表单重置
     reset() {
       this.form = {
-        createdby: null,
-        createdon: null,
-        modifiedby: null,
-        modifiedon: null,
+        askId: null,
+        createBy: null,
+        createTime: null,
+        updateBy: null,
+        updateTime: null,
         status: null,
-        phaseid: null,
+        phaseId: null,
         question: null,
-        id: null,
-        onlinetype: null
+        onlineType: null
       };
       this.resetForm("form");
     },
@@ -250,7 +243,7 @@ export default {
     },
     // 多选框选中数据
     handleSelectionChange(selection) {
-      this.ids = selection.map(item => item.createdby)
+      this.ids = selection.map(item => item.askId)
       this.single = selection.length!==1
       this.multiple = !selection.length
     },
@@ -263,8 +256,8 @@ export default {
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset();
-      const createdby = row.createdby || this.ids
-      getAsk(createdby).then(response => {
+      const askId = row.askId || this.ids
+      getAsk(askId).then(response => {
         this.form = response.data;
         this.open = true;
         this.title = "修改应答";
@@ -274,7 +267,7 @@ export default {
     submitForm() {
       this.$refs["form"].validate(valid => {
         if (valid) {
-          if (this.form.createdby != null) {
+          if (this.form.askId != null) {
             updateAsk(this.form).then(response => {
               this.$modal.msgSuccess("修改成功");
               this.open = false;
@@ -292,9 +285,9 @@ export default {
     },
     /** 删除按钮操作 */
     handleDelete(row) {
-      const createdbys = row.createdby || this.ids;
-      this.$modal.confirm('是否确认删除应答编号为"' + createdbys + '"的数据项？').then(function() {
-        return delAsk(createdbys);
+      const askIds = row.askId || this.ids;
+      this.$modal.confirm('是否确认删除应答编号为"' + askIds + '"的数据项？').then(function() {
+        return delAsk(askIds);
       }).then(() => {
         this.getList();
         this.$modal.msgSuccess("删除成功");

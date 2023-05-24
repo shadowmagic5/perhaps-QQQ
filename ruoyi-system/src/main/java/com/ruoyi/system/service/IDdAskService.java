@@ -7,17 +7,17 @@ import com.ruoyi.system.domain.DdAsk;
  * 应答Service接口
  *
  * @author ruoyi
- * @date 2023-05-23
+ * @date 2023-05-24
  */
 public interface IDdAskService
 {
     /**
      * 查询应答
      *
-     * @param createdby 应答主键
+     * @param askId 应答主键
      * @return 应答
      */
-    public DdAsk selectDdAskByCreatedby(String createdby);
+    public DdAsk selectDdAskByAskId(Long askId);
 
     /**
      * 查询应答列表
@@ -46,16 +46,16 @@ public interface IDdAskService
     /**
      * 批量删除应答
      *
-     * @param createdbys 需要删除的应答主键集合
+     * @param askIds 需要删除的应答主键集合
      * @return 结果
      */
-    public int deleteDdAskByCreatedbys(String[] createdbys);
+    public int deleteDdAskByAskIds(Long[] askIds);
 
     /**
      * 删除应答信息
      *
-     * @param createdby 应答主键
+     * @param askId 应答主键
      * @return 结果
      */
-    public int deleteDdAskByCreatedby(String createdby);
+    public int deleteDdAskByAskId(Long askId);
 }

@@ -25,7 +25,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
  * 应答Controller
  *
  * @author ruoyi
- * @date 2023-05-23
+ * @date 2023-05-24
  */
 @RestController
 @RequestMapping("/system/ask")
@@ -63,10 +63,10 @@ public class DdAskController extends BaseController
      * 获取应答详细信息
      */
     @PreAuthorize("@ss.hasPermi('system:ask:query')")
-    @GetMapping(value = "/{createdby}")
-    public AjaxResult getInfo(@PathVariable("createdby") String createdby)
+    @GetMapping(value = "/{askId}")
+    public AjaxResult getInfo(@PathVariable("askId") Long askId)
     {
-        return success(ddAskService.selectDdAskByCreatedby(createdby));
+        return success(ddAskService.selectDdAskByAskId(askId));
     }
 
     /**
@@ -96,9 +96,9 @@ public class DdAskController extends BaseController
      */
     @PreAuthorize("@ss.hasPermi('system:ask:remove')")
     @Log(title = "应答", businessType = BusinessType.DELETE)
-    @DeleteMapping("/{createdbys}")
-    public AjaxResult remove(@PathVariable String[] createdbys)
+    @DeleteMapping("/{askIds}")
+    public AjaxResult remove(@PathVariable Long[] askIds)
     {
-        return toAjax(ddAskService.deleteDdAskByCreatedbys(createdbys));
+        return toAjax(ddAskService.deleteDdAskByAskIds(askIds));
     }
 }

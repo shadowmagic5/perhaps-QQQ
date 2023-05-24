@@ -5,90 +5,85 @@
 <mapper namespace="com.ruoyi.system.mapper.DdAskMapper">
 
     <resultMap type="DdAsk" id="DdAskResult">
-        <result property="createdby"    column="createdby"    />
-        <result property="createdon"    column="createdon"    />
-        <result property="modifiedby"    column="modifiedby"    />
-        <result property="modifiedon"    column="modifiedon"    />
+        <result property="askId"    column="ASK_ID"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
         <result property="status"    column="status"    />
-        <result property="phaseid"    column="phaseid"    />
+        <result property="phaseId"    column="phase_id"    />
         <result property="question"    column="question"    />
-        <result property="id"    column="ID"    />
-        <result property="onlinetype"    column="onlineType"    />
+        <result property="onlineType"    column="online_type"    />
     </resultMap>
 
     <sql id="selectDdAskVo">
-        select createdby, createdon, modifiedby, modifiedon, status, phaseid, question, ID, onlineType from dd_ask
+        select ASK_ID, create_by, create_time, update_by, update_time, status, phase_id, question, online_type from dd_ask
     </sql>
 
     <select id="selectDdAskList" parameterType="DdAsk" resultMap="DdAskResult">
         <include refid="selectDdAskVo"/>
         <where>
-            <if test="createdby != null  and createdby != ''"> and createdby = #{createdby}</if>
-            <if test="createdon != null  and createdon != ''"> and createdon = #{createdon}</if>
-            <if test="modifiedby != null  and modifiedby != ''"> and modifiedby = #{modifiedby}</if>
-            <if test="modifiedon != null  and modifiedon != ''"> and modifiedon = #{modifiedon}</if>
             <if test="status != null  and status != ''"> and status = #{status}</if>
-            <if test="phaseid != null "> and phaseid = #{phaseid}</if>
+            <if test="phaseId != null "> and phase_id = #{phaseId}</if>
             <if test="question != null  and question != ''"> and question = #{question}</if>
-            <if test="id != null "> and ID = #{id}</if>
-            <if test="onlinetype != null  and onlinetype != ''"> and onlineType = #{onlinetype}</if>
+            <if test="onlineType != null "> and online_type = #{onlineType}</if>
         </where>
     </select>
 
-    <select id="selectDdAskByCreatedby" parameterType="String" resultMap="DdAskResult">
+    <select id="selectDdAskByAskId" parameterType="Long" resultMap="DdAskResult">
         <include refid="selectDdAskVo"/>
-        where createdby = #{createdby}
+        where ASK_ID = #{askId}
     </select>
 
     <insert id="insertDdAsk" parameterType="DdAsk">
         insert into dd_ask
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="createdby != null">createdby,</if>
-            <if test="createdon != null">createdon,</if>
-            <if test="modifiedby != null">modifiedby,</if>
-            <if test="modifiedon != null">modifiedon,</if>
+            <if test="askId != null">ASK_ID,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
             <if test="status != null">status,</if>
-            <if test="phaseid != null">phaseid,</if>
+            <if test="phaseId != null">phase_id,</if>
             <if test="question != null">question,</if>
-            <if test="id != null">ID,</if>
-            <if test="onlinetype != null">onlineType,</if>
+            <if test="onlineType != null">online_type,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="createdby != null">#{createdby},</if>
-            <if test="createdon != null">#{createdon},</if>
-            <if test="modifiedby != null">#{modifiedby},</if>
-            <if test="modifiedon != null">#{modifiedon},</if>
+            <if test="askId != null">#{askId},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
             <if test="status != null">#{status},</if>
-            <if test="phaseid != null">#{phaseid},</if>
+            <if test="phaseId != null">#{phaseId},</if>
             <if test="question != null">#{question},</if>
-            <if test="id != null">#{id},</if>
-            <if test="onlinetype != null">#{onlinetype},</if>
+            <if test="onlineType != null">#{onlineType},</if>
         </trim>
     </insert>
 
     <update id="updateDdAsk" parameterType="DdAsk">
         update dd_ask
         <trim prefix="SET" suffixOverrides=",">
-            <if test="createdon != null">createdon = #{createdon},</if>
-            <if test="modifiedby != null">modifiedby = #{modifiedby},</if>
-            <if test="modifiedon != null">modifiedon = #{modifiedon},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="status != null">status = #{status},</if>
-            <if test="phaseid != null">phaseid = #{phaseid},</if>
+            <if test="phaseId != null">phase_id = #{phaseId},</if>
             <if test="question != null">question = #{question},</if>
-            <if test="id != null">ID = #{id},</if>
-            <if test="onlinetype != null">onlineType = #{onlinetype},</if>
+            <if test="onlineType != null">online_type = #{onlineType},</if>
         </trim>
-        where createdby = #{createdby}
+        where ASK_ID = #{askId}
     </update>
 
-    <delete id="deleteDdAskByCreatedby" parameterType="String">
-        delete from dd_ask where createdby = #{createdby}
+    <delete id="deleteDdAskByAskId" parameterType="Long">
+        delete from dd_ask where ASK_ID = #{askId}
     </delete>
 
-    <delete id="deleteDdAskByCreatedbys" parameterType="String">
-        delete from dd_ask where createdby in
-        <foreach item="createdby" collection="array" open="(" separator="," close=")">
-            #{createdby}
+    <delete id="deleteDdAskByAskIds" parameterType="String">
+        delete from dd_ask where ASK_ID in
+        <foreach item="askId" collection="array" open="(" separator="," close=")">
+            #{askId}
         </foreach>
     </delete>
 </mapper>

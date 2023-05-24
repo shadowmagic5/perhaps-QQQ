@@ -10,9 +10,9 @@ export function listAsk(query) {
 }
 
 // 查询应答详细
-export function getAsk(createdby) {
+export function getAsk(askId) {
   return request({
-    url: '/system/ask/' + createdby,
+    url: '/system/ask/' + askId,
     method: 'get'
   })
 }
@@ -36,9 +36,9 @@ export function updateAsk(data) {
 }
 
 // 删除应答
-export function delAsk(createdby) {
+export function delAsk(askId) {
   return request({
-    url: '/system/ask/' + createdby,
+    url: '/system/ask/' + askId,
     method: 'delete'
   })
 }
